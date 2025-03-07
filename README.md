@@ -17,7 +17,7 @@ Error Handling: Proper error handling is implemented for API request failures.
 
 Responsive Design: The app is fully responsive, ensuring it works on mobile and desktop devices.
 
-## Features
+## Tech Stack
 React.js: A JavaScript library for building user interfaces.
 
 TypeScript: A typed superset of JavaScript that improves code quality and maintainability.
