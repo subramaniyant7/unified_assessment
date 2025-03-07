@@ -35,15 +35,23 @@ Here's an overview of the folder structure:
 
 /src
   /components       - React components (CoinList, GridMode, ListMode, etc.)
+  
   /api              - API requests (for CoinGecko API)
+  
   /styles           - TailwindCSS or other styling related files
+  
 /public
   index.html        - The main HTML file
   ...
+  
 /node_modules       - Project dependencies
+
 /package.json       - Project metadata and dependencies
+
 /tsconfig.json      - TypeScript configuration
+
 /jest.config.js     - Jest testing configuration
+
 /tailwind.config.js - TailwindCSS configuration
 
 ## Setup and Installation
