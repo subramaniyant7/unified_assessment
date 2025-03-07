@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { getCoinDetails } from '../api/coinGecko';
+import { motion } from "framer-motion";
 
 const CoinDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -27,20 +28,27 @@ const CoinDetail: React.FC = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="p-8 max-w-4xl mx-auto">
-       <button className="return-button" onClick={() => navigate('/')}>
-        Return to Landing Page
-      </button>
-      <h1 className="text-3xl font-bold">{coin.name}</h1>
-      <p className="text-lg">{coin.symbol.toUpperCase()}</p>
-      <p className="text-md">{coin.description.en}</p>
-      <p><strong>Hashing Algorithm:</strong> {coin.hashing_algorithm}</p>
-      <p><strong>Market Cap:</strong> €{coin.market_data.market_cap.eur}</p>
-      <a href={coin.links.homepage[0]} target="_blank" rel="noopener noreferrer" className="text-blue-500">
-        Visit Homepage
-      </a>
-      <p><strong>Genesis Date:</strong> {coin.genesis_date}</p>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+      className="p-4"
+    >
+      <div className="p-8 max-w-4xl mx-auto">
+        <button className="return-button" onClick={() => navigate('/')}>
+          Return to Landing Page
+        </button>
+        <h1 className="text-3xl font-bold">{coin.name}</h1>
+        <p className="text-lg">{coin.symbol.toUpperCase()}</p>
+        <p className="text-md">{coin.description.en}</p>
+        <p><strong>Hashing Algorithm:</strong> {coin.hashing_algorithm}</p>
+        <p><strong>Market Cap:</strong> €{coin.market_data.market_cap.eur}</p>
+        <a href={coin.links.homepage[0]} target="_blank" rel="noopener noreferrer" className="text-blue-500">
+          Visit Homepage
+        </a>
+        <p><strong>Genesis Date:</strong> {coin.genesis_date}</p>
+      </div>
+    </motion.div>
   );
 };
 
